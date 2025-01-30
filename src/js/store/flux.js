@@ -12,6 +12,18 @@ const getState = ({ getStore, getActions, setStore }) => {
 					background: "white",
 					initial: "white"
 				}
+			],
+			characters: [
+				{
+					Gender: "FIRST",
+					HairColor: "white",          //da lasciare vuoti dopo
+					EyeColor: "white"
+				},
+				{
+					Gender: "FIRST",
+					HairColor: "white",
+					EyeColor: "white"
+				}
 			]
 		},
 		actions: {
