@@ -22,19 +22,23 @@ const getState = ({ getStore, getActions, setStore }) => {
 				{
 					Gender: "FIRST",
 					HairColor: "white",
-					EyeColor: "white"
+					EyeColor: "blue"
 				}
 			]
 		},
 		actions: {
 			// Use getActions to call a function within a fuction
-			exampleFunction: () => {
-				getActions().changeColor(0, "green");
-			},
+			// exampleFunction: () => {
+			// 	getActions().changeColor(0, "green");
+			// },
 			loadSomeData: () => {
-				/**
-					fetch().then().then(data => setStore({ "foo": data.bar }))
-				*/
+				console.log("loadSomeData");
+				
+					fetch("https://www.swapi.tech/api/people")
+					.then((response) => response.json())
+					.then((data => setStore({characters: data.results})))
+					// .then((data => setStore({ "foo": data.bar })))
+				
 			},
 			changeColor: (index, color) => {
 				//get the store

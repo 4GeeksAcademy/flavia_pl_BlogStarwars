@@ -10,14 +10,14 @@ export const Navbar = () => {
 			</Link>
 			<div className="ml-auto">
 				<Link to="/demo">
-					<div class="dropdown">
-						<a class="btn btn-primary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+					<div className="dropdown">
+						<div className="btn btn-primary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
 						Favorites
-						</a>
-						<ul class="dropdown-menu">
-							<li><a class="dropdown-item" href="#">Action</a></li>
-							<li><a class="dropdown-item" href="#">Another action</a></li>
-							<li><a class="dropdown-item" href="#">Something else here</a></li>
+						</div>
+						<ul className="dropdown-menu">
+							{/* <li><a className="dropdown-item" href="#">Action</a></li>        qui va un array di preferiti  --> map??
+							<li><a className="dropdown-item" href="#">Another action</a></li>
+							<li><a className="dropdown-item" href="#">Something else here</a></li> */}
 						</ul>
 					</div>
 				</Link>
