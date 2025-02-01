@@ -1,30 +1,21 @@
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
-			demo: [
-				{
-					title: "FIRST",
-					background: "white",
-					initial: "white"
-				},
-				{
-					title: "SECOND",
-					background: "white",
-					initial: "white"
-				}
-			],
-			characters: [
-				{
-					Gender: "FIRST",
-					HairColor: "white",          //da lasciare vuoti dopo
-					EyeColor: "white"
-				},
-				{
-					Gender: "FIRST",
-					HairColor: "white",
-					EyeColor: "blue"
-				}
-			]
+			// demo: [
+			// 	{
+			// 		title: "FIRST",
+			// 		background: "white",
+			// 		initial: "white"
+			// 	},
+			// 	{
+			// 		title: "SECOND",
+			// 		background: "white",
+			// 		initial: "white"
+			// 	}
+			// ],
+			characters: [],
+
+			favoritesCharacters: [],
 		},
 		actions: {
 			// Use getActions to call a function within a fuction
@@ -40,6 +31,22 @@ const getState = ({ getStore, getActions, setStore }) => {
 					// .then((data => setStore({ "foo": data.bar })))
 				
 			},
+
+			addToFavorites: (name) => {
+				console.log("addtoFavorite");
+
+				const store = getStore();
+
+				if (!store.favoritesCharacters.includes(name)) {                               //si la id no está ya en favorites, la añade
+				const updatedFavoritesCharacters = [...store.favoritesCharacters, name ];
+
+				setStore({favoritesCharacters: updatedFavoritesCharacters })
+				console.log("personajes favoritos:", updatedFavoritesCharacters );
+				
+				}
+			},
+
+
 			changeColor: (index, color) => {
 				//get the store
 				const store = getStore();
