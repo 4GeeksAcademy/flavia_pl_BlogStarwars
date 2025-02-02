@@ -18,7 +18,7 @@ const Card = (props) => {
                 <p className="card-text">Hair: {props.item.name}</p>
                 <p className="card-text">Eye-Color: {props.item.url}</p>
                 <div>
-                    <Link to="/single">
+                    <Link to={`/single/"${props.item.uid}`}>
                         <div className="btn btn-outline-primary">Learn more!</div>
                     </Link>
                     <div className="btn btn-outline-warning" onClick={() => actions.addToFavorites(props.item.name)}><i className="fa-regular fa-heart"></i></div>

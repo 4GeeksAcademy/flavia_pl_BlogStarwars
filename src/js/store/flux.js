@@ -16,6 +16,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 			characters: [],
 
 			favoritesCharacters: [],
+
+			// characterDescription: "",
 		},
 		actions: {
 			// Use getActions to call a function within a fuction
@@ -28,7 +30,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 					fetch("https://www.swapi.tech/api/people")
 					.then((response) => response.json())
 					.then((data => setStore({characters: data.results})))
-					// .then((data => setStore({ "foo": data.bar })))
 				
 			},
 
@@ -37,14 +38,38 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 				const store = getStore();
 
-				if (!store.favoritesCharacters.includes(name)) {                               //si la id no está ya en favorites, la añade
-				const updatedFavoritesCharacters = [...store.favoritesCharacters, name ];
+				if (!store.favoritesCharacters.includes(name)) {                               //si el name no está ya en favorites,
+				const updatedFavoritesCharacters = [...store.favoritesCharacters, name ];              // lo añade
 
 				setStore({favoritesCharacters: updatedFavoritesCharacters })
 				console.log("personajes favoritos:", updatedFavoritesCharacters );
 				
 				}
 			},
+
+			deleteFavorite : (name) => {
+			console.log("deleteFavorite", name);
+			
+				const store = getStore();
+
+			const CharacterWithoudDeletedOnes = store.favoritesCharacters.filter((item) => item != name)
+
+			setStore({favoritesCharacters : CharacterWithoudDeletedOnes})
+			console.log("lista personaggi aggiornata dopo delete", CharacterWithoudDeletedOnes);
+			
+		},
+
+			showCharacterDescription: (id) => {
+				console.log("showCharacterDescription");
+				
+				fetch("https://www.swapi.tech/api/people/"+id)
+				.then((response) => response.json())
+				.then((data) => setStore({character : data.results}))
+				 console.log("personaje según ID")
+
+				// .then((data => setStore({characters: data.results})))
+			},
+
 
 
 			changeColor: (index, color) => {
