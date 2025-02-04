@@ -17,10 +17,11 @@ const Card = (props) => {
                 <p className="card-text">Gender: {props.item.gender}</p>
                 <p className="card-text">Hair: {props.item.hair_color}</p>
                 <p className="card-text">Eye-Color: {props.item.eye_color}</p>
+                <p className="card-text">id: {props.item.url.replace("https://swapi.dev/api/people/","").replace("/","")}</p>
                 <div>
-                    {/* <Link to={`/single/"${props.item.uid}`}> */}
+                    <Link to={`/single/${props.item.url.replace("https://swapi.dev/api/people/","").replace("/","")}`}>
                         <div className="btn btn-outline-primary">Learn more!</div>
-                    {/* </Link> */}
+                    </Link>
                     <div className="btn btn-outline-warning" onClick={() => actions.addToFavorites(props.item.name)}><i className="fa-regular fa-heart"></i></div>
                 </div>    
             </div>

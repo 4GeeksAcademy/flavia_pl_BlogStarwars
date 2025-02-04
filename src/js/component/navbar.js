@@ -9,7 +9,7 @@ export const Navbar = () => {
 	const { store, actions } = useContext(Context);
 
 	return (
-		<nav className="navbar navbar-light bg-light mb-3">
+		<nav className="navbar navbar-light bg-light mb-0">
 			<Link to="/">
 				<img className="logoStarWars" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRsLx7DhskrlNNHPSLKOKPsvg1LKlRuEDzD9A&s"/>
 			</Link>

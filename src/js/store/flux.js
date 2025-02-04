@@ -62,7 +62,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			showCharacterDescription: (id) => {
 				console.log("showCharacterDescription");
 				
-				fetch("https://www.swapi.tech/api/people/"+id)
+				fetch("https://swapi.dev/api/people"+id)
 				.then((response) => response.json())
 				.then((data) => setStore({character : data.results}))
 				 console.log("personaje según ID")
