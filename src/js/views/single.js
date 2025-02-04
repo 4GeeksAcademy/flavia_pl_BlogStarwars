@@ -5,12 +5,21 @@ import { Context } from "../store/appContext";
 
 export const Single = props => {
 	const { store, actions } = useContext(Context);
-	const params = useParams();
-	const { id } = useParams();
+	const {id} = useParams();
+	console.log(id);
 
-	// useEffect( actions.showCharacterDescription(params.uid),[])
+	const [description, setDescription] = useState ("");
 
+	useEffect(() => {
+		console.log("muestra Characters details")
 
+		fetch(`https://www.swapi.tech/api/people/${id}`)
+		.then((response) => response.json())
+		.then((data) => setDescription(data.result.properties.hair_color))
+		
+	},[id])
+
+	
 	return (
 
 
@@ -18,6 +27,7 @@ export const Single = props => {
 			{/* <h1>{store.character.name}</h1>
 			<div>{store.character.description}</div> */}
 			<h1>Hola</h1>
+			<p>{description}</p>
 		
 		</div>
 	);
