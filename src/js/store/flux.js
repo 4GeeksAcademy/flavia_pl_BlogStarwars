@@ -17,6 +17,10 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 			favoritesCharacters: [],
 
+			planets: [],
+
+			favoritesPlanets: [],
+
 			// characterDescription: "",
 		},
 		actions: {
@@ -33,6 +37,12 @@ const getState = ({ getStore, getActions, setStore }) => {
 				
 			},
 
+			loadPlanets: () => {
+				fetch("https://swapi.dev/api/planets")
+				.then((response) => response.json())
+				.then((data) => setStore({ planets: data.results }));
+			},
+
 			addToFavorites: (name) => {
 				console.log("addtoFavorite");
 
@@ -44,6 +54,14 @@ const getState = ({ getStore, getActions, setStore }) => {
 				setStore({favoritesCharacters: updatedFavoritesCharacters })
 				console.log("personajes favoritos:", updatedFavoritesCharacters );
 				
+				}
+			},
+
+			addPlanetToFavorites: (name) => {
+				const store = getStore();
+			
+				if (!store.favoritesPlanets.includes(name)) {
+					setStore({ favoritesPlanets: [...store.favoritesPlanets, name] });
 				}
 			},
 
@@ -59,16 +77,16 @@ const getState = ({ getStore, getActions, setStore }) => {
 			
 		},
 
-			showCharacterDescription: (id) => {
-				console.log("showCharacterDescription");
+			// showCharacterDescription: (id) => {
+			// 	console.log("showCharacterDescription");
 				
-				fetch("https://swapi.dev/api/people"+id)
-				.then((response) => response.json())
-				.then((data) => setStore({character : data.results}))
-				 console.log("personaje según ID")
+			// 	fetch("https://swapi.dev/api/people"+id)
+			// 	.then((response) => response.json())
+			// 	.then((data) => setStore({character : data.results}))
+			// 	 console.log("personaje según ID")
 
-				// .then((data => setStore({characters: data.results})))
-			},
+			// 	// .then((data => setStore({characters: data.results})))
+			// },
 
 
 

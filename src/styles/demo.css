@@ -1,3 +1,7 @@
 .btn-outline-warning {
     margin-left: 100px;
 }
+ul {
+    list-style-type: none; /* Rimuove i puntini dalle liste */
+    padding-left: 0;       /* Rimuove il padding a sinistra */
+}
