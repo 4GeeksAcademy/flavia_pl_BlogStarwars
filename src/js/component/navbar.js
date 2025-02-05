@@ -17,7 +17,7 @@ export const Navbar = () => {
 				
 				<div className="dropdown">
 					<div className="btn btn-primary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-					<span>Favorites</span> <span className="bg-secondary text-white" style={{paddingLeft: "4px", paddingRight:"4px"}}>{store.favoritesCharacters.length}</span>
+					<span>Favorites</span> <span className="bg-secondary text-white" style={{paddingLeft: "4px", paddingRight:"4px"}}>{store.favoritesCharacters.length + store.favoritesPlanets.length}</span>
 					</div>
 					<ul className="dropdown-menu">
 						{store.favoritesCharacters.length > 0 ? (store.favoritesCharacters.map((item, index) => (
@@ -30,6 +30,15 @@ export const Navbar = () => {
 					) : (
 					<li className="dropdown-item">Empty</li>
 				)}
+
+						{store.favoritesPlanets.length > 0 ? (store.favoritesPlanets.map((item, index) => (
+						<li
+							key={index}
+							className="dropdown-item d-flex justify-content-between"> <span>{item}</span>
+							<i className="fa-solid fa-trash ps-4" onClick={() => actions.deleteFavoritePlanet(item)}></i>
+						</li>
+						))
+					) : null }
 					</ul>
 				</div>
 			</div>

@@ -18,7 +18,7 @@ const CardPlanets = (props) => {
                 <p className="card-text">Terrain: {props.item.terrain}</p>
                 <p className="card-text">id: {props.item.url.replace("https://swapi.dev/api/planets/","").replace("/","")}</p>
                 <div>
-                    <Link to={`/single/${props.item.url.replace("https://swapi.dev/api/planets/","").replace("/","")}`}>
+                    <Link to={`/planets/${props.item.url.replace("https://swapi.dev/api/planets/","").replace("/","")}`}>
                         <div className="btn btn-outline-primary">Learn more!</div>
                     </Link>
                     <div className="btn btn-outline-warning" onClick={() => actions.addPlanetToFavorites(props.item.name)}><i className="fa-regular fa-heart"></i></div>

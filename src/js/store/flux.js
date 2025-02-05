@@ -44,7 +44,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 
 			addToFavorites: (name) => {
-				console.log("addtoFavorite");
+				console.log("add Character to Favorites");
 
 				const store = getStore();
 
@@ -58,25 +58,45 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 
 			addPlanetToFavorites: (name) => {
+				console.log("add Planet to Favorites");
+
 				const store = getStore();
 			
 				if (!store.favoritesPlanets.includes(name)) {
-					setStore({ favoritesPlanets: [...store.favoritesPlanets, name] });
+					const updatedFavoritesPlanets = [...store.favoritesPlanets, name];
+
+				
+					setStore({favoritesPlanets: updatedFavoritesPlanets })
+					console.log("planetas favoritos:", updatedFavoritesPlanets );
 				}
 			},
+
+
 
 			deleteFavorite : (name) => {
 			console.log("deleteFavorite", name);
 			
 				const store = getStore();
 
-			const CharacterWithoudDeletedOnes = store.favoritesCharacters.filter((item) => item != name)
+			const characterWithoudDeletedOnes = store.favoritesCharacters.filter((item) => item != name)
 
-			setStore({favoritesCharacters : CharacterWithoudDeletedOnes})
-			console.log("lista personaggi aggiornata dopo delete", CharacterWithoudDeletedOnes);
+			setStore({favoritesCharacters : characterWithoudDeletedOnes})
+			console.log("lista personaggi aggiornata dopo delete", characterWithoudDeletedOnes);
 			
 		},
 
+
+		deleteFavoritePlanet : (name) => {
+			console.log("deleteFavorite Planet", name);
+			
+				const store = getStore();
+
+			const planetWithoudDeletedOnes = store.favoritesPlanets.filter((item) => item != name)
+
+			setStore({favoritesPlanets : planetWithoudDeletedOnes})
+			console.log("lista personaggi aggiornata dopo delete", planetWithoudDeletedOnes);
+			
+		},
 			// showCharacterDescription: (id) => {
 			// 	console.log("showCharacterDescription");
 				

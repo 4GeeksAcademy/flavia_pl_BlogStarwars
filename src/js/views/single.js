@@ -7,13 +7,13 @@ import "../../styles/single.css";
 export const Single = props => {
 	const { store, actions } = useContext(Context);
 	const params = useParams();
-	console.log(params);
+	console.log("mostrami i params di personaggi",params);
 
 	const [details, setDetails] = useState ({});
 	const [descriptionC, setDescriptionC] = useState ("");
 
 	useEffect(() => {
-		console.log("muestra Characters details")
+		console.log("muestra Characters details", params.character_id)
 
 		fetch("https://www.swapi.tech/api/people/" + params.character_id)
 		.then((response) => response.json())
