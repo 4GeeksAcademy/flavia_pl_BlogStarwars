@@ -21,6 +21,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 			favoritesPlanets: [],
 
+
 			// characterDescription: "",
 		},
 		actions: {
@@ -50,8 +51,9 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 				if (!store.favoritesCharacters.includes(name)) {                               //si el name no está ya en favorites,
 				const updatedFavoritesCharacters = [...store.favoritesCharacters, name ];              // lo añade
-
+			
 				setStore({favoritesCharacters: updatedFavoritesCharacters })
+				
 				console.log("personajes favoritos:", updatedFavoritesCharacters );
 				
 				}
