@@ -11,6 +11,7 @@ const Card = (props) => {
         const id = props.item.url.replace("https://swapi.dev/api/people/","").replace("/","")
         console.log(id);
         
+       const inFavorite = store.favoritesCharacters.includes(props.item.name)
     return (
         <div>
             <img src={`https://starwars-visualguide.com/assets/img/characters/${id}.jpg`} className="card-img-top" alt="..."/>
@@ -21,11 +22,11 @@ const Card = (props) => {
                 <p className="card-text">Eye-Color: {props.item.eye_color}</p>
                 {/* <p className="card-text">id: {props.item.url.replace("https://swapi.dev/api/people/","").replace("/","")}</p> */}
                 {/* <p className="card-text">id: {props.item.url.replace("https://swapi.dev/api/people/","").replace("/","")}</p> */}
-                <div>
+                <div className="d-flex">
                     <Link to={`/single/${props.item.url.replace("https://swapi.dev/api/people/","").replace("/","")}`}>
-                        <div className="btn btn-outline-primary">Learn more!</div>
+                        <div className="btn + btn-outline-primary">Learn more!</div>
                     </Link>
-                    <div className="btn btn-outline-warning" onClick={() => actions.addToFavorites(props.item.name)}><i className="fa-regular fa-heart"></i></div>
+                    <div className={"btn " + (inFavorite ? "btn-warning ms-auto" : "btn-outline-warning")} onClick={() => actions.addToFavorites(props.item.name)}><i className="fa-regular fa-heart"></i></div>
                 </div>    
             </div>
         </div>
